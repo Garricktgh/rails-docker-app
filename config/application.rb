@@ -10,7 +10,9 @@ module RailsDockerApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
-
+    # By default, the files in the app/workers/ folder aren't read by Rails.
+    # You have to go to the config/application.rb and insert this line inside the class Application block.
+    config.autoload_paths += %W(#{config.root}/app/workers)
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
